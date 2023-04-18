@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Home from './pages/Home'
+import Attendance from './pages/Attendance'
+import Calender from './pages/Calender'
+import ClassList from './pages/ClassList'
+import TimeTable from './pages/TimeTable'
+import Exam from './pages/Exam'
+import ExamResult from './pages/ExamResult'
+import HomeWork from './pages/Homework'
+import News from './pages/News'
+import Settings from './pages/Settings'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/'>
+            <Route index element={<Home />} />
+            <Route path='attendance' element={<Attendance />} />
+            <Route path='calender' element={<Calender />} />
+            <Route path='classlist' element={<ClassList />} />
+            <Route path='timetable' element={<TimeTable />} />
+            <Route path='exam' element={<Exam />} />
+            <Route path='examresult' element={<ExamResult />} />
+            <Route path='homework' element={<HomeWork />} />
+            <Route path='news' element={<News />} />
+            <Route path='settings' element={<Settings />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
